@@ -1,0 +1,99 @@
+09-23 19:50 [MainProcess, 2608] [INFO ]  Positive Instances: 5331
+09-23 19:50 [MainProcess, 2608] [INFO ]  Negative Instances: 5331
+09-23 19:50 [MainProcess, 2608] [INFO ]  Size of the data sets: 10662
+09-23 19:50 [MainProcess, 2608] [INFO ]  Time used to load and shuffle MR dataset: 22.413000 seconds.
+09-23 19:53 [MainProcess, 8036] [INFO ]  Positive Instances: 5331
+09-23 19:53 [MainProcess, 8036] [INFO ]  Negative Instances: 5331
+09-23 19:53 [MainProcess, 8036] [INFO ]  Size of the data sets: 10662
+09-23 19:53 [MainProcess, 8036] [INFO ]  Time used to load and shuffle MR dataset: 0.038000 seconds.
+09-25 15:46 [MainProcess, 8876] [INFO ]  Size of the data sets: 0
+09-25 15:46 [MainProcess, 8876] [INFO ]  Time used to load and shuffle MR dataset: 6.186000 seconds.
+09-25 15:46 [MainProcess, 8876] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 4.284000 seconds.
+09-25 15:47 [MainProcess, 8876] [INFO ]  Positive Instances: 5331
+09-27 14:16 [MainProcess, 636] [INFO ]  Positive Instances: 5331
+09-27 14:16 [MainProcess, 636] [INFO ]  Negative Instances: 5331
+09-27 14:16 [MainProcess, 636] [INFO ]  Size of the data sets: 10662
+09-27 14:16 [MainProcess, 636] [INFO ]  Time used to load and shuffle MR dataset: 13.851000 seconds.
+09-27 14:24 [MainProcess, 2148] [INFO ]  Positive Instances: 5331
+09-27 14:24 [MainProcess, 2148] [INFO ]  Negative Instances: 5331
+09-27 14:24 [MainProcess, 2148] [INFO ]  Size of the data sets: 10662
+09-27 14:24 [MainProcess, 2148] [INFO ]  Time used to load and shuffle MR dataset: 0.033000 seconds.
+09-27 14:42 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 14:42 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 14:42 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 14:42 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.039004 seconds.
+09-27 14:43 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 14:43 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 22.533253 seconds.
+09-27 14:43 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 14:43 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 14:43 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 14:43 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-27 14:43 [MainProcess, 536] [INFO ]  Finish building model: None
+09-27 14:45 [MainProcess, 536] [INFO ]  Time used for training the model = 104.29042792320251 seconds.
+09-27 14:45 [MainProcess, 536] [INFO ]  Sentiment analysis accuracy with rnn on test set = 0.6314473273456749
+09-27 14:54 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 14:54 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 14:54 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 14:54 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 14:54 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 14:54 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 14:54 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.046005 seconds.
+09-27 14:54 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.046005 seconds.
+09-27 14:54 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 14:54 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 14:54 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.366036 seconds.
+09-27 14:54 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.366036 seconds.
+09-27 14:54 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 14:54 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 14:54 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 14:54 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 14:54 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 14:54 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 14:54 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-27 14:54 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-27 14:54 [MainProcess, 536] [INFO ]  Finish building model: None
+09-27 14:54 [MainProcess, 536] [INFO ]  Finish building model: None
+09-27 14:56 [MainProcess, 536] [INFO ]  Time used for training the model = 112.90128898620605 seconds.
+09-27 14:56 [MainProcess, 536] [INFO ]  Time used for training the model = 112.90128898620605 seconds.
+09-27 14:56 [MainProcess, 536] [INFO ]  Sentiment analysis accuracy with rnn on test set = 0.6448890249890885
+09-27 14:56 [MainProcess, 536] [INFO ]  Sentiment analysis accuracy with rnn on test set = 0.6448890249890885
+09-27 16:06 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Positive Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Negative Instances: 5331
+09-27 16:06 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 16:06 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 16:06 [MainProcess, 536] [INFO ]  Size of the data sets: 10662
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.046000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.046000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to load and shuffle MR dataset: 0.046000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 16:06 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 16:06 [MainProcess, 536] [INFO ]  Blank index: </s>
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.373000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.373000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.373000 seconds.
+09-27 16:06 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 16:06 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 16:06 [MainProcess, 536] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-27 16:06 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Default positive percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Default negative percentage in dataset: 0.500000
+09-27 16:06 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-27 16:06 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-27 16:06 [MainProcess, 536] [INFO ]  Training set size = 7463, test set size = 3199
+09-28 15:38 [MainProcess, 12044] [INFO ]  Positive Instances: 5331
+09-28 15:38 [MainProcess, 12044] [INFO ]  Negative Instances: 5331
+09-28 15:38 [MainProcess, 12044] [INFO ]  Size of the data sets: 10662
+09-28 15:38 [MainProcess, 12044] [INFO ]  Time used to load and shuffle MR dataset: 0.041008 seconds.
+09-28 15:38 [MainProcess, 12044] [INFO ]  Blank index: </s>
+09-28 15:38 [MainProcess, 12044] [INFO ]  Time used to build sparse and dense input word-embedding matrices: 0.503101 seconds.
+09-28 15:38 [MainProcess, 12044] [INFO ]  Shape of data tensor = (10662, 52, 50), shape of label matrix = (10662, 1)
+09-28 15:38 [MainProcess, 12044] [INFO ]  Default positive percentage in dataset: 0.500000
+09-28 15:38 [MainProcess, 12044] [INFO ]  Default negative percentage in dataset: 0.500000
+09-28 15:38 [MainProcess, 12044] [INFO ]  Training set size = 7463, test set size = 3199
