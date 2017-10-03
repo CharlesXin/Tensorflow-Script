@@ -3,7 +3,7 @@
 # @Date    : 2017-09-10
 # @Author  : Ivan
 import os, sys
-os.chdir("C:\\Users\\cxin\\Desktop\\计算机视觉资料\\Lecture6_0910\\rnn_sentiment")
+os.chdir("C:\\Users\\cxin\\Desktop\\计算机视觉资料\\Lecture6_0910\\RNN Sentiment Anlysis Word2vec")
 import numpy as np
 import logging
 import time
@@ -13,9 +13,13 @@ import tensorflow as tf
 from wordvec import WordEmbedding
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
-from keras.layers import Dense, LSTM, GRU, SimpleRNN, GlobalAveragePooling1D, merge, TimeDistributedMerge
+from keras.layers import Dense, LSTM, GRU, SimpleRNN, GlobalAveragePooling1D, Activation, Input, Model
 from keras.utils import to_categorical
-
+from keras import backend as K
+from keras.engine.topology import Layer
+from keras.layers import merge,Dot
+from keras.models import Model
+import io
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-s', '--size', help='The size of each batch used to be trained.', type=int, default=100)
@@ -116,6 +120,7 @@ num_hidden = 100
 # Different model to use, training phase.
 # Your code here: use the following handler model to name your Keras model.
 model = None
+
 if args.model == "rnn":
     # You should implement your vanilla RNN + mean pooling here.
     model = Sequential()
@@ -140,21 +145,67 @@ elif args.model == "gru":
     model.compile(loss="categorical_crossentropy", optimizer="adadelta", metrics=["accuracy"])    
 elif args.model == "lstm":
     
-    modelLSTM = Sequential()
-    modelLSTM.add(LSTM(num_hidden, input_shape=(None, word_embedding.embedding_dim()), return_sequences=True))
-    
-    modelattention = Sequential()
-    modelattention.add(LSTM(num_hidden, input_shape=(None, word_embedding.embedding_dim()), return_sequences=True)) 
-    modelattention.add(Dense(num_hidden, activation="softmax")) 
-    
+    # You should implement your LSTM + mean pooling here.
     model = Sequential()
-    model.add(merge([modelLSTM, modelattention], 'mul'))
-    model.add(TimeDistributedMerge('sum'))   
+    # input_shape = (None, num_feats), where the first None means the length of the sequence and the 
+    # second num_feats means the number of features. 
+    model.add(LSTM(num_hidden, input_shape=(None, word_embedding.embedding_dim()), return_sequences=True))
+    # Mean pooling along time dimension.
+    model.add(GlobalAveragePooling1D())
+    # Logistic regression classification.
     model.add(Dense(num_classes, activation="softmax"))
-    model.compile(loss="categorical_crossentropy", optimizer="adadelta", metrics=["accuracy"])    
+    model.compile(loss="categorical_crossentropy", optimizer="adadelta", metrics=["accuracy"])     
 
 else:
     raise NameError("{} model not supported.".format(args.model))
+
+
+########################### Attention Model
+
+class MyLayer1(Layer):
+
+    def __init__(self, output_dim, **kwargs):
+        self.output_dim = output_dim
+        super(MyLayer1, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        # Create a trainable weight variable for this layer.
+        # input_shape (batch_size, timesteps, units)
+        self.output_dim = input_shape[-2]
+        self.kernel = self.add_weight(name='attention_layer_weight',
+                                      shape=(input_shape[-1],1),
+                                      initializer='uniform',
+                                      trainable=True)
+        super(MyLayer1, self).build(input_shape)  # Be sure to call this somewhere!
+
+    def call(self, x):
+        #logger.info(x.shape)
+        result =  K.dot(x, self.kernel)
+        #logger.info(result.shape)
+        result = K.sum(result, axis = -1)
+        #logger.info(result.shape)
+        return result
+
+    def compute_output_shape(self, input_shape):
+        return (input_shape[0], self.output_dim)
+
+
+net_input = Input(shape=(max_len, word_embedding.embedding_dim()), name='net_input')
+lstm = LSTM(num_hidden, return_sequences=True)(net_input)
+atten = MyLayer1(max_len)(lstm)
+atten_softmax = Activation("softmax")(atten)  # batchsize * sequence_length
+#logger.info(lstm.shape)
+#logger.info(atten_softmax.shape)
+merge_layer = Dot(1)([atten_softmax,lstm])
+#logger.info('final merge layer shape')
+#logger.info(merge_layer.shape)
+output_layer = Dense(num_classes, activation="softmax")(merge_layer)
+#logger.info(output_layer.shape)
+model = Model(inputs=net_input,output=output_layer)
+model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+
+
 
 # Training phase begins.
 logger.info("Finish building model: {}".format(model.summary()))
@@ -165,11 +216,3 @@ logger.info("Time used for training the model = {} seconds.".format(end_time - s
 # Test phase.
 _, acc = model.evaluate(test_insts, test_labels, batch_size=batch_size, verbose=2)
 logger.info("Sentiment analysis accuracy with {} on test set = {}".format(args.model, acc))
-
-
-# attention after Zhou et al.
-    attention = Activation('tanh')(activations)    # Eq. 9
-    attention = Dense(1)(attention)                # Eq. 10
-    attention = Flatten()(attention)               # Eq. 10
-    attention = Activation('softmax')(attention)   # Eq. 10
-    activations = merge([activations, attention], mode='mul')  # Eq. 11
